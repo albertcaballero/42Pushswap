@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/07/27 13:13:39 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/07/27 13:38:01 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ int	push_swap()
 
 int	main(int argc, char **argv)
 {
+	int		*a;
+
 	if (argc < 2)
 		write (2, "Error\n", 6);
+	a = 
+	return (0);
 }
