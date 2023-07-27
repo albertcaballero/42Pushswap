@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/07/27 13:38:01 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:32:29 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		write (2, "Error\n", 6);
-	a = 
+	a = arg_parse(argc, argv);
 	return (0);
 }

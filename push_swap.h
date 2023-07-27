@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/07/27 13:33:49 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:24:27 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
-# include "libft.h"
 
 #endif
