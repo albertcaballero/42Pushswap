@@ -3,12 +3,12 @@ LIBRARY = push_swap.h
 CFLAGS= -Wall -Wextra -Werror
 CC = cc
 
-SRC = push_swap.c argv_cleaner.c utils.c
+SRC = push_swap.c argv_cleaner.c utils.c sort5.c
 
 OBJS = $(SRC:.c=.o)
 
 %.o: %.c $(LIBRARY) Makefile
-	$(MAKE) -C /Users/alcaball/libft_gh
+	$(MAKE) -C ./libft
 	$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
