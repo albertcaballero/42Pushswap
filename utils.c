@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/01 13:45:57 by alcaball         ###   ########.fr       */
+/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
+/*   Updated: 2023/08/01 13:45:44 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> //delete
 
-int	push_swap()
+int	freebird(int *a)
 {
-
-}
-
-int	main(int argc, char **argv)
-{
-	int		*a;
-	int		i;
+	int	i;
 
 	i = 0;
-	if (argc < 2)
-		return (write (2, "Error\n", 6));
-	a = arg_parse(argc, argv);
-	while (a[i]) //delete
+	while (a[i])
 	{
-		printf("%i\n", a[i]);
+		free(a[i]);
+		a[i] = 0;
 		i++;
 	}
-	if (a == -1)
-		return (write (2, "Error\n", 6));
-	freebird(a);
-	return (0);
+	free (a);
+	a = 0;
+	return (-1);
 }
