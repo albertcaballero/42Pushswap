@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:50:45 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/01 16:54:09 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/01 17:11:19 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,14 @@ int	*sort2(int *arr)
 		arr[1] = temp;
 	}
 	return (arr);
+}
+
+int	*sort3(int *arr)
+{
+	int	min;
+
+	min = fmin(arr);
+	temp = arr[0]
+	arr[0] = arr[]
+	//el min en pos1, los otros 2 es un sort2
 }

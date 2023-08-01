@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/01 13:45:44 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/01 17:10:33 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,14 @@ int	freebird(int *a)
 	free (a);
 	a = 0;
 	return (-1);
+}
+
+int	fmin(int	*arr)
+{
+
+}
+
+int	fmax(int *arr)
+{
+
 }
