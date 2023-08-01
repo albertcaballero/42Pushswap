@@ -6,17 +6,13 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/01 13:45:57 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:13:50 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h> //delete
 
-int	push_swap()
-{
-
-}
 
 int	main(int argc, char **argv)
 {
@@ -32,7 +28,7 @@ int	main(int argc, char **argv)
 		printf("%i\n", a[i]);
 		i++;
 	}
-	if (a == -1)
+	if (a[0] == -1)
 		return (write (2, "Error\n", 6));
 	freebird(a);
 	return (0);
