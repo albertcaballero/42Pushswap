@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:13:52 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:28:05 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,6 @@ int	clean_start(char *num)
 	return (0);
 }
 
-int	arg_parse(int argc, char **argv)
-{
-	int		i;
-	long	temp;
-	int		*a;
-
-	i = 1;
-	while (i <= argc)
-	{
-		if (clean_start(argv[i]) == -1)
-			return (-1);
-		if (check_repeated(argv, argc - 1) == -1)
-			return (-1);
-		temp = atol(argv[i]);
-		if (temp > 2147483647 || temp < -2147483648)
-			return (-1);
-	}
-	return (0);
-}
-
 int	check_repeated(char **a, int count)
 {
 	int		i;
@@ -72,3 +52,23 @@ int	check_repeated(char **a, int count)
 	}
 	return (0);
 }
+
+int	arg_parse(int argc, char **argv)
+{
+	int		i;
+	long	temp;
+
+	i = 1;
+	while (i <= argc)
+	{
+		if (clean_start(argv[i]) == -1)
+			return (-1);
+		if (check_repeated(argv, argc - 1) == -1)
+			return (-1);
+		temp = atol(argv[i]);
+		if (temp > 2147483647 || temp < -2147483648)
+			return (-1);
+	}
+	return (0);
+}
+
