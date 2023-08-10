@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/04 17:10:00 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/25 15:35:47 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
+	char	*pdst;
+	char	*psrc;
 
 	i = 0;
-	while (a[i])
+	pdst = (char *) dst;
+	psrc = (char *) src;
+	if (dst == 0 && src == 0)
+		return (NULL);
+	while (i < n)
 	{
-		free(a[i]);
-		a[i] = 0;
+		pdst[i] = psrc[i];
 		i++;
 	}
-	free (a);
-	a = 0;
-	return (-1);
+	return (pdst);
 }
-
+/*
+int	main(void)
+{
+	char dst[] = "";
+	char src[] = "";
+	size_t n = 0;
+	printf("%s\n", ft_memcpy(dst, src, n));
+	printf("%s\n", memcpy(dst, src, n));
+	return (0);
+}//*/

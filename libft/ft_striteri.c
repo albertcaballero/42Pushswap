@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/23 11:40:50 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/23 16:45:17 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	int	i;
+	unsigned int		i;
 
 	i = 0;
-	while (a[i])
+	while (s[i])
 	{
-		free(a[i]);
-		a[i] = 0;
+		f(i, &s[i]);
 		i++;
 	}
-	free (a);
-	a = 0;
-	return (-1);
 }
-

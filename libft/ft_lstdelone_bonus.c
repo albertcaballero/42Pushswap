@@ -1,30 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/27 16:10:13 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/30 11:39:07 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int	i;
-
-	i = 0;
-	while (a[i])
-	{
-		free(a[i]);
-		a[i] = 0;
-		i++;
-	}
-	free (a);
-	a = 0;
-	return (-1);
+	del(lst->content);
+	free (lst);
 }
-

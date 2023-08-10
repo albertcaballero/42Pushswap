@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/25 18:50:00 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/27 13:04:32 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+t_list	*ft_lstnew(void *content)
 {
-	int	i;
+	t_list	*pepe;
 
-	i = 0;
-	while (a[i])
-	{
-		free(a[i]);
-		a[i] = 0;
-		i++;
-	}
-	free (a);
-	a = 0;
-	return (-1);
+	pepe = malloc (sizeof(t_list));
+	if (!pepe)
+		return (NULL);
+	pepe->content = content;
+	pepe->next = NULL;
+	return (pepe);
 }
-

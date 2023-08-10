@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/02 18:40:49 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/25 13:44:11 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*ps;
 
 	i = 0;
-	while (a[i])
+	ps = (char *) s;
+	while (s[i] != '\0')
 	{
-		free(a[i]);
-		a[i] = 0;
+		if (s[i] == (char) c)
+			return (&ps[i]);
 		i++;
 	}
-	free (a);
-	a = 0;
-	return (-1);
+	if ((char) c == 0)
+		return (&ps[i]);
+	return (0);
 }
-
+/*
+int	main(void)
+{
+	const char *s = "abcdef";
+	int c = 99;
+	printf("1 is %s\n", strchr(s, c));
+	printf("2 is %s", ft_strchr(s, c));
+	return (0);
+}//*/

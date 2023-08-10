@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/23 15:50:51 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/30 17:09:21 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
-	i = 0;
-	while (a[i])
-	{
-		free(a[i]);
-		a[i] = 0;
-		i++;
-	}
-	free (a);
-	a = 0;
-	return (-1);
+	i = ft_strlen((const char *) s);
+	write(fd, s, i);
+	write(fd, "\n", 1);
+	return ;
 }
-

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/23 11:26:06 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/30 17:11:09 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
+	unsigned int	i;
+	char			*newstr;
 
+	newstr = malloc ((ft_strlen(s) + 1) * sizeof(char));
+	if (!newstr)
+		return (NULL);
 	i = 0;
-	while (a[i])
+	while (s[i])
 	{
-		free(a[i]);
-		a[i] = 0;
+		newstr[i] = f(i, s[i]);
 		i++;
 	}
-	free (a);
-	a = 0;
-	return (-1);
+	newstr[i] = 0;
+	return (newstr);
 }
-

@@ -1,30 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/04 15:13:21 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/25 13:49:20 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
+	char	*str;
 
 	i = 0;
-	while (a[i])
+	str = (char *) s;
+	while (i < n)
 	{
-		free(a[i]);
-		a[i] = 0;
+		if (str[i] == (char) c)
+			return (&str[i]);
 		i++;
 	}
-	free (a);
-	a = 0;
-	return (-1);
+	return (NULL);
 }
-
+/*
+int	main(void)
+{
+	char	s[] = "jhhhmmbaf";
+	int		c = 97;
+	size_t	n = 2;
+	printf("%s\n", memchr(s, c, n));
+	printf("%s", ft_memchr(s, c, n));
+	return(0);
+}
+//*/

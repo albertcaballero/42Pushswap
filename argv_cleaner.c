@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/01 14:12:24 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/10 11:13:52 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	clean_start(char *num)
 	return (0);
 }
 
-int	*arg_parse(int argc, char **argv)
+int	arg_parse(int argc, char **argv)
 {
 	int		i;
 	long	temp;
@@ -50,15 +50,7 @@ int	*arg_parse(int argc, char **argv)
 		if (temp > 2147483647 || temp < -2147483648)
 			return (-1);
 	}
-	a = malloc(sizeof(int *) * (argc - 1));
-	i = 0;
-	while (i < argc)
-	{
-		a[i] = malloc(sizeof(int));
-		a[i] = atoi(argv[i + 1]);
-		i++;
-	}
-	return (a);
+	return (0);
 }
 
 int	check_repeated(char **a, int count)

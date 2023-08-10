@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/02 15:25:40 by alcaball          #+#    #+#             */
+/*   Updated: 2023/05/30 17:08:38 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (a[i])
-	{
-		free(a[i]);
-		a[i] = 0;
+	while (str[i] != '\0')
 		i++;
-	}
-	free (a);
-	a = 0;
-	return (-1);
+	return (i);
 }
-
+/*
+int	main(void)
+{
+	char	s[] = "mama";
+	printf("%lu", ft_strlen(s));
+	return (0);
+} //*/

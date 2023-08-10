@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:00:13 by alcaball         ###   ########.fr       */
+/*   Created: 2023/05/27 15:26:51 by alcaball          #+#    #+#             */
+/*   Updated: 2023/07/27 16:18:18 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	freebird(int *a)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	i;
+	t_list	*curr;
 
-	i = 0;
-	while (a[i])
+	if (*lst == NULL)
+		*lst = new;
+	else
 	{
-		free(a[i]);
-		a[i] = 0;
-		i++;
+		curr = ft_lstlast(*lst);
+		curr->next = new;
 	}
-	free (a);
-	a = 0;
-	return (-1);
 }
-
