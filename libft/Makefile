@@ -21,7 +21,6 @@ BONUSRC = ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c ft_lstlas
 
 BONUSOBJS = $(BONUSRC:.c=.o)
 
-
 %.o: %.c $(LIBRARY) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
