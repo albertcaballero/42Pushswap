@@ -5,20 +5,14 @@ CC = cc
 
 SRC = push_swap.c argv_cleaner.c utils.c sort5.c
 
-OBJS = $(SRC:.c=.o)
-
-%.o: %.c $(LIBRARY) Makefile
+$(NAME): $(LIBRARY) Makefile
 	$(MAKE) -C ./libft bonus
-	$(CC) $(CFLAGS) -c $< -o $@ -L./libft -lft
-	10/08/2023 ME HE QUEDDADO AQUI YA CASI ESTA PERO NO DEL TODO
+	$(CC) $(CFLAGS) $(SRC) -L./libft -lft -o $(NAME)
 
 all: $(NAME)
 
-$(NAME):$(OBJS)
-
 clean:
 	$(MAKE) -C ./libft clean
-	rm -f $(OBJS) $(BONUSOBJS)
 
 fclean: clean
 	$(MAKE) -C ./libft fclean

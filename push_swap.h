@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:50:20 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/12 11:53:01 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <unistd.h>
+# include <stdlib.h>
 
 int		arg_parse(int argc, char **argv);
 int		freebird(int *a);

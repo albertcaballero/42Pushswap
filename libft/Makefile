@@ -28,6 +28,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBRARY)
 	ar -crs $(NAME) $(OBJS)
+	
 
 bonus: $(BNAME)
 $(BNAME): $(BONUSOBJS) $(OBJS)
