@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/12 11:52:19 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/12 13:23:34 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	clean_start(char *num)
 	j = 0;
 	while (num[j] != 0)
 	{
-		if (ft_isdigit(num[j]) == 0)
+		if (ft_isdigit(num[j]) == 0 && (num[0] != 45 && num[0] != 43))
 			return (-1);
 		j++;
 	}
@@ -39,12 +39,12 @@ int	check_repeated(char **a, int count)
 	int		j;
 
 	i = 1;
-	while (i < count)
+	while (i <= count)
 	{
 		j = 1;
-		while (j < count)
+		while (j <= count)
 		{
-			if (a[i] == a[j] && i != j)
+			if (ft_strncmp(a[i], a[j], ft_strlen(a[i])) == 0 && i != j)
 				return (-1);
 			j++;
 		}
@@ -59,15 +59,16 @@ int	arg_parse(int argc, char **argv)
 	long	temp;
 
 	i = 1;
-	while (i <= argc)
+	if (check_repeated(argv, argc - 1) == -1)
+		return (-1);
+	while (i < argc)
 	{
 		if (clean_start(argv[i]) == -1)
-			return (-1);
-		if (check_repeated(argv, argc - 1) == -1)
 			return (-1);
 		temp = ft_atol(argv[i]);
 		if (temp > 2147483647 || temp < -2147483648)
 			return (-1);
+		i++;
 	}
 	return (0);
 }

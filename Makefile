@@ -5,7 +5,7 @@ CC = cc
 
 SRC = push_swap.c argv_cleaner.c utils.c sort5.c
 
-$(NAME): $(LIBRARY) Makefile
+$(NAME): $(LIBRARY) Makefile $(SRC)
 	$(MAKE) -C ./libft bonus
 	$(CC) $(CFLAGS) $(SRC) -L./libft -lft -o $(NAME)
 

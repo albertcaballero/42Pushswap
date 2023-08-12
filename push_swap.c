@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/10 11:28:06 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/12 13:25:09 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	main(int argc, char **argv)
 		return (write (2, "Error\n", 6));
 	if (arg_parse(argc, argv) == -1)
 		return (write (2, "Error\n", 6));
+	write (1, "input ok\n", 8);
 	// atost(argv[0]);
 	// freebird(a);
 	return (0);
