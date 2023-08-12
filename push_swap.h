@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/12 13:41:44 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/12 15:30:38 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+typedef struct s_number
+{
+	int				val;
+	struct s_number	*next;
+	struct s_number	*prev;
+	int				pos;
+}	t_num;
 
 int		arg_parse(int argc, char **argv);
 int		freebird(int *a);
@@ -25,14 +33,10 @@ int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putendl_fd(char *s, int fd);
-
-
-typedef struct s_number
-{
-	int				val;
-	struct s_number	*next;
-	struct s_number	*prev;
-	int				pos;
-}	t_num;
+int		sort1(t_num *a);
+int		sort2(t_num *a);
+int		sort3(t_num *a);
+int		sort4(t_num *a);
+int		sort5(t_num *a);
 
 #endif
