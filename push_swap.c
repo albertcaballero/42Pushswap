@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 16:01:35 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:13:09 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,8 @@ t_num	*create_stack(int argc, char **argv, int flag)
 
 void	sort_few(int count, t_num *stack_a)
 {
-	if (count == 2)
-		sort2(stack_a);
-	if (count == 3)
-		sort3(stack_a);
+	if (count == 2 || count == 3)
+		sort23(stack_a);
 	if (count == 4)
 		sort4(stack_a);
 	if (count == 5)
@@ -88,7 +86,8 @@ int	main(int argc, char **argv)
 	write (1, "---------\ninput ok\n---------\n", 29);
 	stack_a = create_stack(argc, argv, flag);
 	print_nodes(stack_a);
-	is_sorted(stack_a); //create
+	if (is_sorted(stack_a) == 1)
+		return (0);
 	if (argc < 5)
 		sort_few (argc, stack_a);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 16:03:20 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:12:24 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putendl_fd(char *s, int fd);
-void	sort2(t_num *a);
-int		sort3(t_num *a);
-int		sort4(t_num *a);
-int		sort5(t_num *a);
+void	sort23(t_num *a);
+void	sort4(t_num *a);
+void	sort5(t_num *a);
 char	**ft_split(char const *s, char c);
 void	print_nodes(t_num *stack); //borrar
-t_num	*swap(t_num *a);
 int		min(t_num *stack);
 int		max(t_num *stack);
+int		is_sorted(t_num	*stack);
+t_num	*swap(t_num *stack);
+t_num	*rotate(t_num *stack);
 
 #endif
