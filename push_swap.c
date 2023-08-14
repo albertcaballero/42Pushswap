@@ -6,11 +6,26 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/12 15:45:24 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 11:39:29 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_num	*create_stack(int argc, char **argv)
+{
+	t_num	*stack_a;
+	t_num	*head;
+	
+	while (i < argc)
+	{
+		stack_a->pos = i;
+		stack_a->val = atoi(argv[i]);
+		stack_a->next = NULL; //find way to chain them
+		print_node(stack_a);
+		i++;
+	}
+}
 
 void	sort_few(int count, t_num *stack_a)
 {
