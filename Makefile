@@ -8,7 +8,7 @@ RED     =   \033[1;91m
 NC      =   \033[0m
 YELLOW  =   \033[1;33m
 
-SRC = push_swap.c argv_cleaner.c utils.c sort5.c
+SRC = push_swap.c argv_cleaner.c utils.c sort5.c movements.c
 
 all: makelib $(NAME)
 
