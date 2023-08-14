@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 12:48:43 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:54:35 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,9 @@ int	clean_start(char *num)
 	return (0);
 }
 
-int	check_repeated(char **a, int count)
+int	check_repeated(t_num *stack)
 {
-	int		i;
-	int		j;
-
-	i = 1;
-	while (i <= count)
-	{
-		j = 1;
-		while (j <= count)
-		{
-			if (ft_strncmp(a[i], a[j], ft_strlen(a[i])) == 0 && i != j)
-				return (-1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
+	//14 aug 23 17.53 
 }
 
 int	arg_parse(int argc, char **argv)

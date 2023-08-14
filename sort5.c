@@ -6,22 +6,31 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:50:45 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 17:13:24 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:44:49 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
-void	sort23(t_num *a)
+t_num	*sort23(t_num *a)
 {
-	while (is_sorted(a) != 1)
+	while (is_sorted(a) != ORDERED)
 	{
-		if (max(a) == 1 && a->val > (a->next)->val)
-			swap(a);
+		printf("MAX: %d\n", max(a));
+		if (max(a) != 0 && a->val > (a->next)->val)
+		{
+			a = swap(a);
+			printf("sa\n");	
+		}
 		else
-			rotate (a);
-		a = a->next;
+		{
+			a = rotate (a);
+			printf("ra\n");
+		}
+		usleep(10000);
 	}
+	return (a);
 }
 
 void	sort4(t_num *a)

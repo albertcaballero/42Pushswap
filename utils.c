@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 17:10:49 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:47:45 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int	freebird(int *a)
 
 int	is_sorted(t_num	*stack)
 {
-	while (stack)
+	while (stack->next)
 	{
 		if (stack->val > (stack->next)->val)
-			return (0);
+			return (NOT_ORDERED);
 		stack = stack->next;
 	}
-	return (1);
+	return (ORDERED);
 }
 
-int	min(t_num *stack)
+int	min(t_num *stack) //mal
 {
 	int	min;
 	int	pos;
@@ -50,15 +50,20 @@ int	max(t_num *stack)
 {
 	int	max;
 	int	pos;
+	int	posmax;
 
 	max = stack->val;
+	posmax = 0;
 	pos = 0;
 	while (stack)
 	{
 		if (stack->val > max)
+		{
+			posmax = pos;
 			max = stack->val;
+		}
 		stack = stack->next;
 		pos++;
 	}
-	return (pos);
+	return (posmax);
 }

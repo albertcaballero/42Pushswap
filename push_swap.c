@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 17:13:09 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:54:12 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	{
 		stack_a->pos = i - flag;
 		stack_a->val = atoi(argv[i]);
+		if (i == argc + flag - 1)
+			break;
 		stack_a->next = malloc(sizeof(t_num));
 		stack_a = stack_a->next;
 		i++;
@@ -35,14 +37,14 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	return (head);
 }
 
-void	sort_few(int count, t_num *stack_a)
+void	sort_few(int count, t_num **stack_a)
 {
 	if (count == 2 || count == 3)
-		sort23(stack_a);
+		*stack_a = sort23(*stack_a);
 	if (count == 4)
-		sort4(stack_a);
+		sort4(*stack_a);
 	if (count == 5)
-		sort5(stack_a);
+		sort5(*stack_a);
 }
 
 //DELETE
@@ -85,10 +87,15 @@ int	main(int argc, char **argv)
 		return (write (2, "Error\n", 6));
 	write (1, "---------\ninput ok\n---------\n", 29);
 	stack_a = create_stack(argc, argv, flag);
+	if (check_repeated(stack_a) == REPEATED)
+		return (write (2, "Error\n", 6));
 	print_nodes(stack_a);
-	if (is_sorted(stack_a) == 1)
+	if (is_sorted(stack_a) == ORDERED)
 		return (0);
 	if (argc < 5)
-		sort_few (argc, stack_a);
+		sort_few (argc, &stack_a);
+	//IF FLAG_QUOTES FREE SPLIT
+	//FREE STACK A AL FINAL DEL PROGRAMA
+	print_nodes(stack_a);
 	return (0);
 }
