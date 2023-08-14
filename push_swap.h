@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/12 15:30:38 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 12:27:10 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ int		sort2(t_num *a);
 int		sort3(t_num *a);
 int		sort4(t_num *a);
 int		sort5(t_num *a);
+char	**ft_split(char const *s, char c);
+
 
 #endif

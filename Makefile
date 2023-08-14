@@ -3,6 +3,11 @@ LIBRARY = push_swap.h
 CFLAGS= -Wall -Wextra -Werror
 CC = cc
 
+GREEN   =   \033[1;92m
+RED     =   \033[1;91m
+NC      =   \033[0m
+YELLOW  =   \033[1;33m
+
 SRC = push_swap.c argv_cleaner.c utils.c sort5.c
 
 all: makelib $(NAME)
@@ -21,5 +26,14 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+exec:
+	@printf "${RED}"
+	./push_swap "4 67 3 87 23"
+	@printf "${YELLOW}"
+	./push_swap 55 5554 89 98 003 -01
+	@printf "${GREEN}"
+	./push_swap 1 2 3 4 5
+	@printf "${NC}"
 
 .PHONY: all clean fclean re bonus
