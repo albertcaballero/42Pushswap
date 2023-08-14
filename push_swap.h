@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 12:27:10 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:58:14 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+
+# define FLAG_QUOTES 0
+# define FLAG_NO_QUOTES 1
 
 typedef struct s_number
 {
@@ -39,6 +42,7 @@ int		sort3(t_num *a);
 int		sort4(t_num *a);
 int		sort5(t_num *a);
 char	**ft_split(char const *s, char c);
+void	print_nodes(t_num *stack); //borrar
 
 
 #endif
