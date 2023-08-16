@@ -36,11 +36,12 @@ exec:
 	./push_swap 1 2 3 4 5
 	@printf "${NC}"
 
-PRINT_N = $(grep "printf" $(SRC) | wc -l)
+PRINT_N = $(shell grep "printf" $(SRC) | wc -l)
 
 forbidden:
 	@printf "${RED}"
 	@grep "printf" $(SRC)
+	@printf "%i \n${NC}" $(PRINT_N)
 	@printf "${YELLOW}"
 	@grep "//DELETE" $(SRC)
 	@printf "${RED}"

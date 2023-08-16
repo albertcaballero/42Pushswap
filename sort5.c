@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:50:45 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 14:02:36 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:23:58 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	*sort45(t_num **a, t_num **b)
 		if (min(a) == 0)
 			push_b (a, b);
 	}
-	sort23(a);
+	sort23(3, a, b);
 	while (b)
-		push_a (b);
+		push_a (a, b);
 }

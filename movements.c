@@ -6,13 +6,13 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:07:55 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 14:07:15 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:17:37 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_num	*swap(t_num *stack)
+t_num	*swap(t_num **stack)
 {
 	t_num	*temp;
 
