@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:07:55 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 17:04:09 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:36:38 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,22 @@ t_num	*rotate(t_num *stack)
 
 t_num	*push_b(t_num *stack_a, t_num **stack_b)
 {
-	*stack_b = stack_a;
+	t_num	*temp;
+
+	temp = stack_a;
 	stack_a = stack_a->next;
-	(*stack_b)->next = NULL;
+	temp->next = *stack_b;
+	*stack_b = temp;
 	return (stack_a);
 }
 
 t_num	*push_a(t_num **stack_a, t_num *stack_b)
 {
-	*stack_a = stack_b;
-	stack_b = (stack_b)->next;
-	(*stack_a)->next = NULL;
+	t_num	*temp;
+
+	temp = stack_b;
+	stack_b = stack_b->next;
+	temp->next = *stack_a;
+	*stack_a = temp;
 	return (stack_b);
 }

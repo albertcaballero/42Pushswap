@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 16:23:09 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:42:23 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,10 @@ int	main(int argc, char **argv)
 	print_nodes(stack_a);
 	if (is_sorted(stack_a) == ORDERED)
 		return (0);
-	if (argc < 5)
+	if (argc <= 5)
 		sort_few (argc, &stack_a, &stack_b);
+	else
+		sort(&stack_a, &stack_b);
 	//IF FLAG_QUOTES, FREE(SPLIT)
 	//FREE STACK A AL FINAL DEL PROGRAMA
 	print_nodes(stack_a);

@@ -31,7 +31,7 @@ fclean: clean
 re: fclean all
 
 exec:
-	@printf "$(BLUE)===="4 67 3 87 23"====${RED}\n"
+	@printf "$(BLUE)====4 67 3 87 23====${RED}\n"
 	@./push_swap "4 67 3 87 23"
 	@printf "$(BLUE)====55 5554 89 98 003 -01====${YELLOW}\n"
 	./push_swap 55 5554 89 98 003 -01
