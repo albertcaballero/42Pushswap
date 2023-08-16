@@ -4,6 +4,11 @@ LIBRARY = libft.h
 CFLAGS= -Wall -Wextra -Werror -I.
 CC = cc
 
+GREEN   =   \033[1;92m
+RED     =   \033[1;91m
+NC      =   \033[0m
+YELLOW  =   \033[1;33m
+
 SRC = ft_isalpha.c ft_memchr.c	ft_memset.c\
 	ft_strncmp.c ft_isascii.c	ft_memcmp.c\
 	ft_strchr.c	ft_strrchr.c	ft_bzero.c\
@@ -42,5 +47,14 @@ fclean: clean
 	rm -f $(NAME) $(BNAME)
 
 re: fclean all
+
+forbidden:
+	@printf "${RED}"
+	@grep "printf" $(SRC)
+	@printf "${YELLOW}There are %i printfs!! ${RED}\n" $(PRINT_N)
+	@grep //DELETE $(SRC) || true
+	@printf "${RED}"
+	@norminette > /dev/null && printf "$(GREEN)OK\n" || norminette | grep Error
+	@printf "${NC}"
 
 .PHONY: all clean fclean re bonus

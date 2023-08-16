@@ -36,4 +36,15 @@ exec:
 	./push_swap 1 2 3 4 5
 	@printf "${NC}"
 
+PRINT_N = $(grep "printf" $(SRC) | wc -l)
+
+forbidden:
+	@printf "${RED}"
+	@grep "printf" $(SRC)
+	@printf "${YELLOW}"
+	@grep "//DELETE" $(SRC)
+	@printf "${RED}"
+	@norminette > /dev/null && printf "$(GREEN)OK\n" || norminette | grep Error
+	@printf "${NC}"
+
 .PHONY: all clean fclean re bonus

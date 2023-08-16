@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 17:47:45 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 11:46:21 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,22 @@ int	is_sorted(t_num	*stack)
 	return (ORDERED);
 }
 
-int	min(t_num *stack) //mal
+int	min(t_num *stack)
 {
 	int	min;
 	int	pos;
+	int	posmin;
 
 	min = stack->val;
 	pos = 0;
+	posmin = 0;
 	while (stack)
 	{
 		if (stack->val < min)
+		{
+			posmin = pos;
 			min = stack->val;
+		}
 		stack = stack->next;
 		pos++;
 	}

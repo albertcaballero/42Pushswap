@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort5.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:50:45 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 03:54:24 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/16 13:32:44 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,24 @@ t_num	*sort23(t_num *a)
 
 void	sort4(t_num *a)
 {
-	a = a->next;
-	//rotate/swap until min = 1, push b, sort3(a), push a
+	t_num	*b;
+
+	while (min(a) != 0)
+		a = rotate (a);
+	b = push_b (&a);
+	a = sort23(a);
+	a = push_a (b);
 }
 
 void	sort5(t_num *a)
 {
-	a = a->next;
-	//rotate/swap until min = 1, push b, repeat for min2, sort3(a), sort2(b), push a x2
+	while (min(a) != 0)
+		a = rotate (a);
+	push_b (a);
+	while (min(a) != 0)
+		a = rotate (a);
+	push_b (a);
+	a = sort23(a);
+	push_a (b);
+	push_a (b);
 }

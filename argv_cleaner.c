@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   argv_cleaner.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 03:51:35 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/16 12:40:06 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	clean_start(char *num)
 int	check_repeated(t_num *stack)
 {
 	int		temp;
-	t_num 	*second;
+	t_num	*second;
 
 	while (stack)
 	{
@@ -70,4 +70,3 @@ int	arg_parse(int argc, char **argv)
 	}
 	return (0);
 }
-

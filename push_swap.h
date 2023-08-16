@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 03:45:52 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/16 13:30:07 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_num	*sort23(t_num *a);
 void	sort4(t_num *a);
 void	sort5(t_num *a);
 char	**ft_split(char const *s, char c);
-void	print_nodes(t_num *stack); //borrar
+void	print_nodes(t_num *stack); //DELETE
 int		min(t_num *stack);
 int		max(t_num *stack);
 int		is_sorted(t_num	*stack);

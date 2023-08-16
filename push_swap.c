@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 03:49:01 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/16 13:30:47 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_num	*create_stack(int argc, char **argv, int flag)
 		stack_a->pos = i - flag;
 		stack_a->val = atoi(argv[i]);
 		if (i == argc + flag - 1)
-			break;
+			break ;
 		stack_a->next = malloc(sizeof(t_num));
 		stack_a = stack_a->next;
 		i++;
@@ -61,7 +61,7 @@ void	print_nodes(t_num *stack)
 		write(1, "\n", 1);
 		stack = stack->next;
 	}
-		write(1, "---------\n", 10);
+	write(1, "---------\n", 10);
 }
 
 int	main(int argc, char **argv)
@@ -86,7 +86,6 @@ int	main(int argc, char **argv)
 	stack_a = create_stack(argc, argv, flag);
 	if (check_repeated(stack_a) == REPEATED)
 		return (write (2, "Error\n", 6));
-	write (1, "---------\ninput ok\n---------\n", 29);
 	print_nodes(stack_a);
 	if (is_sorted(stack_a) == ORDERED)
 		return (0);
@@ -95,5 +94,6 @@ int	main(int argc, char **argv)
 	//IF FLAG_QUOTES, FREE(SPLIT)
 	//FREE STACK A AL FINAL DEL PROGRAMA
 	print_nodes(stack_a);
+	printf("aaa\n");
 	return (0);
 }
