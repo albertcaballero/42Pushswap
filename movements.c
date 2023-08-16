@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:07:55 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 13:36:12 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:07:15 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,13 @@ t_num	*rotate(t_num *stack)
 	return (head);
 }
 
-t_num	*push_b(t_num **stack_a)
+t_num	*push_b(t_num **stack_a) //REHACER TODO EN ESTE ARCHIVO PARA ACOMODAR EL **
 {
 	t_num	*b;
 
 	*stack_a = (*stack_a)->next;
 	b = *stack_a;
-	b->next = NULL; //NO ESTOY TENIENDO EN CUENTA QUE B YA EXISTA Y TENGA COSAS
+	b->next = NULL;
 	return (b);
 }
 

@@ -6,16 +6,23 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 11:46:21 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:04:50 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	freebird(int *a)
+int	ft_lstsize(t_num *lst)
 {
-	a[0] = 1;
-	return (-1);
+	int	i;
+
+	i = 0;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }
 
 int	is_sorted(t_num	*stack)

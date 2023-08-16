@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 13:30:47 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 14:06:15 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	int		i;
 
 	i = 0;
-	if (flag == FLAG_NO_QUOTES)
+	if (flag == NO_QUOTES)
 		i = 1;
 	stack_a = malloc(sizeof(t_num));
 	head = stack_a;
@@ -35,16 +35,6 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	}
 	stack_a->next = NULL;
 	return (head);
-}
-
-void	sort_few(int count, t_num **stack_a)
-{
-	if (count == 2 || count == 3)
-		*stack_a = sort23(*stack_a);
-	if (count == 4)
-		sort4(*stack_a);
-	if (count == 5)
-		sort5(*stack_a);
 }
 
 //DELETE
@@ -67,15 +57,17 @@ void	print_nodes(t_num *stack)
 int	main(int argc, char **argv)
 {
 	t_num	*stack_a;
+	t_num	*stack_b;
 	int		flag;
 
 	argc--;
+	stack_b = NULL;
 	if (argc < 1)
 		return (write (2, "Error\n", 6));
-	flag = FLAG_NO_QUOTES;
+	flag = NO_QUOTES;
 	if (argc == 1)
 	{
-		flag = FLAG_QUOTES;
+		flag = QUOTES;
 		argv = ft_split(argv[1], 32);
 		argc = 0;
 		while (argv[argc] != NULL)
@@ -90,7 +82,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack_a) == ORDERED)
 		return (0);
 	if (argc < 5)
-		sort_few (argc, &stack_a);
+		sort_few (argc, &stack_a, &stack_b);
 	//IF FLAG_QUOTES, FREE(SPLIT)
 	//FREE STACK A AL FINAL DEL PROGRAMA
 	print_nodes(stack_a);
