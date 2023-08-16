@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 17:54:12 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 03:49:01 by albert           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,8 @@ void	print_nodes(t_num *stack)
 int	main(int argc, char **argv)
 {
 	t_num	*stack_a;
-	int		i;
 	int		flag;
 
-	i = 0;
 	argc--;
 	if (argc < 1)
 		return (write (2, "Error\n", 6));
@@ -85,16 +83,16 @@ int	main(int argc, char **argv)
 	}
 	if (arg_parse(argc, argv) == -1)
 		return (write (2, "Error\n", 6));
-	write (1, "---------\ninput ok\n---------\n", 29);
 	stack_a = create_stack(argc, argv, flag);
 	if (check_repeated(stack_a) == REPEATED)
 		return (write (2, "Error\n", 6));
+	write (1, "---------\ninput ok\n---------\n", 29);
 	print_nodes(stack_a);
 	if (is_sorted(stack_a) == ORDERED)
 		return (0);
 	if (argc < 5)
 		sort_few (argc, &stack_a);
-	//IF FLAG_QUOTES FREE SPLIT
+	//IF FLAG_QUOTES, FREE(SPLIT)
 	//FREE STACK A AL FINAL DEL PROGRAMA
 	print_nodes(stack_a);
 	return (0);

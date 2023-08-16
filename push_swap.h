@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/14 17:50:38 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 03:45:52 by albert           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_number
 }	t_num;
 
 int		arg_parse(int argc, char **argv);
+int		check_repeated(t_num *stack);
 int		freebird(int *a);
 int		ft_isdigit(int c);
 size_t	ft_strlen(const char *str);
