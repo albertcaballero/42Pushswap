@@ -6,13 +6,13 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:07:55 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 14:17:37 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:04:09 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_num	*swap(t_num **stack)
+t_num	*swap(t_num *stack)
 {
 	t_num	*temp;
 
@@ -37,17 +37,18 @@ t_num	*rotate(t_num *stack)
 	return (head);
 }
 
-t_num	*push_b(t_num **stack_a) //REHACER TODO EN ESTE ARCHIVO PARA ACOMODAR EL **
+t_num	*push_b(t_num *stack_a, t_num **stack_b)
 {
-	t_num	*b;
-
-	*stack_a = (*stack_a)->next;
-	b = *stack_a;
-	b->next = NULL;
-	return (b);
+	*stack_b = stack_a;
+	stack_a = stack_a->next;
+	(*stack_b)->next = NULL;
+	return (stack_a);
 }
 
-t_num	*push_a(t_num **stack_b)
+t_num	*push_a(t_num **stack_a, t_num *stack_b)
 {
-
+	*stack_a = stack_b;
+	stack_b = (stack_b)->next;
+	(*stack_a)->next = NULL;
+	return (stack_b);
 }

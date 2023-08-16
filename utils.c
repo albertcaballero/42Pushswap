@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 14:04:50 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:13:38 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	min(t_num *stack)
 		stack = stack->next;
 		pos++;
 	}
-	return (pos);
+	return (posmin);
 }
 
 int	max(t_num *stack)

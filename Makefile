@@ -3,10 +3,13 @@ LIBRARY = push_swap.h
 CFLAGS= -Wall -Wextra -Werror
 CC = cc
 
-GREEN   =   \033[1;92m
-RED     =   \033[1;91m
+RED     =   \033[38;5;161m
+GREEN   =   \033[38;5;154m
+YELLOW  =   \033[38;5;227m
+BLUE	=   \033[38;5;81m
+PURPLE  =   \033[38;5;93m
+PINK	=	\033[38;5;219m
 NC      =   \033[0m
-YELLOW  =   \033[1;33m
 
 SRC = push_swap.c argv_cleaner.c utils.c sort5.c movements.c
 
@@ -28,23 +31,30 @@ fclean: clean
 re: fclean all
 
 exec:
-	@printf "${RED}"
-	./push_swap "4 67 3 87 23"
-	@printf "${YELLOW}"
+	@printf "$(BLUE)===="4 67 3 87 23"====${RED}\n"
+	@./push_swap "4 67 3 87 23"
+	@printf "$(BLUE)====55 5554 89 98 003 -01====${YELLOW}\n"
 	./push_swap 55 5554 89 98 003 -01
-	@printf "${GREEN}"
+	@printf ""$(BLUE)====1 2 3 4 5====${GREEN}\n"
 	./push_swap 1 2 3 4 5
 	@printf "${NC}"
 
 PRINT_N = $(shell grep "printf" $(SRC) | wc -l)
+DEL_N = $(shell grep "//DELETE" $(SRC) | wc -l)
+FILE_N = $(shell ls | grep a.out | wc -l)
+FILE2_N = $(shell ls | grep *.txt | wc -l)
 
 forbidden:
-	@printf "${RED}"
-	@grep "printf" $(SRC)
-	@printf "%i \n${NC}" $(PRINT_N)
+	@printf "$(BLUE)\n=====FINDING DELETEABLES=====\n\n"
 	@printf "${YELLOW}"
+	@grep "printf" $(SRC)
 	@grep "//DELETE" $(SRC)
-	@printf "${RED}"
+	@printf "${PINK}HAY %i PRINTF Y %i BLOQUES A BORRAR\n${NC}" $(PRINT_N) $(DEL_N)
+	@printf "$(BLUE)\n=====SCANNING EXTRA FILES=====\n\n"
+	@ls | grep a.out || true
+	@ls | grep *.txt || true
+	@printf "${PINK}HAY %i ARCHIVOS A BORRAR\n${NC}" $(shell expr $(FILE_N) + $(FILE2_N))
+	@printf "$(BLUE)\n=====EXECUTING NORMINETTE=====\n\n${RED}"
 	@norminette > /dev/null && printf "$(GREEN)OK\n" || norminette | grep Error
 	@printf "${NC}"
 
