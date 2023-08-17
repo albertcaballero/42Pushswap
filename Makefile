@@ -11,7 +11,7 @@ PURPLE  =   \033[38;5;93m
 PINK	=	\033[38;5;219m
 NC      =   \033[0m
 
-SRC = push_swap.c argv_cleaner.c utils.c sort5.c movements.c
+SRC = push_swap.c argv_cleaner.c utils.c sort5.c movements.c algorithm.c mov_2.c
 
 all: makelib $(NAME)
 

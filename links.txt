@@ -6,3 +6,7 @@ https://www.geeksforgeeks.org/bubble-sort-using-two-stacks/
 https://medium.com/@ulysse.gerkens/push-swap-in-less-than-4200-operations-c292f034f6c0
 https://github.com/ulyssegerkens/push_swap
 https://www.enjoyalgorithms.com/blog/sort-stack-using-temporary-stack
+
+
+https://medium.com/@jamierobertdawson/push-swap-the-least-amount-of-moves-with-two-stacks-d1e76a71789a
+this is the one 

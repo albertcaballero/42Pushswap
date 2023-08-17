@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 17:21:56 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/17 18:22:51 by albert           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ t_num	*swap(t_num *stack);
 t_num	*rotate(t_num *stack);
 t_num	*push_a(t_num **stack_a, t_num *stack_b);
 t_num	*push_b(t_num *stack_a, t_num **stack_b);
+t_num	*rev_rotate(t_num *stack);
 
 #endif
