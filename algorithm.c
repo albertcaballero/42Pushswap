@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/21 17:34:06 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:35:00 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	findcheap(t_num *a, t_num *b)
 				j++;
 				b = b->next; //AQUI TE QUEDASTE - NOW EITHER RB OR RRB UNTIL TOP->POS = 0
 			}
-		}
+		} //separarlo en funciones
 		if (i > (ft_lstsize (a) / 2))
 			movs.rra = ft_lstsize (a) - i;
 		else
