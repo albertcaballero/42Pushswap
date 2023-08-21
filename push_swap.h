@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/21 16:22:26 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/21 16:57:39 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,19 @@
 # define POS 1
 # define VAL 0
 
+typedef struct s_movements
+{
+	int ra;
+	int rb;
+	int rra;
+	int	rrb;
+	int	tot;
+}	t_movs;
+
 typedef struct s_number
 {
 	int				val;
 	struct s_number	*next;
-	int				movs;
 	int				pos;
 }	t_num;
 

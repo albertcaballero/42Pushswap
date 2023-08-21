@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/21 16:40:56 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/21 16:55:20 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	while (i < (argc + flag))
 	{
 		stack_a->pos = i - flag;
-		stack_a->movs = 0;
 		stack_a->val = atoi(argv[i]);
 		if (i == argc + flag - 1)
 			break ;
