@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:50:45 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 18:39:42 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:40:58 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_num	*sort23(t_num **a)
 {
 	while (is_sorted(*a) != ORDERED)
 	{
-		if (max(*a) != 0 && (*a)->val > ((*a)->next)->val)
+		if (max(*a, POS) != 0 && (*a)->val > ((*a)->next)->val)
 			*a = swap(*a);
 		else
 			*a = rotate (*a);
@@ -37,7 +37,7 @@ t_num	*sort45(t_num **a, t_num **b)
 	while (ft_lstsize(*a) > 3)
 	{
 		*a = rotate (*a);
-		if (min(*a) == 0)
+		if (min(*a, POS) == 0)
 			*a = push_b (*a, b);
 	}
 	*a = sort23(a);

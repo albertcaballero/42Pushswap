@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/17 19:09:35 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/21 15:40:03 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+t_num	*put_index(t_num *stack)
+{
+	int	index;
+
+	index = 0;
+	while (stack)
+	{
+		stack->pos = index;
+		index++;
+		stack = stack->next;
+	}
+	return (stack);
+}
 
 int	ft_lstsize(t_num *lst)
 {
@@ -36,7 +50,7 @@ int	is_sorted(t_num	*stack)
 	return (ORDERED);
 }
 
-int	min(t_num *stack)
+int	min(t_num *stack, int flag)
 {
 	int	min;
 	int	pos;
@@ -55,10 +69,13 @@ int	min(t_num *stack)
 		stack = stack->next;
 		pos++;
 	}
-	return (posmin);
+	if (flag == POS)
+		return (posmin);
+	if (flag == VAL)
+		return (min);
 }
 
-int	max(t_num *stack)
+int	max(t_num *stack, int flag)
 {
 	int	max;
 	int	pos;
@@ -77,5 +94,8 @@ int	max(t_num *stack)
 		stack = stack->next;
 		pos++;
 	}
-	return (posmax);
+	if (flag == POS)
+		return (posmax);
+	if (flag == VAL)
+		return (max);
 }

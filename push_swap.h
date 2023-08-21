@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/17 18:22:51 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/21 16:22:26 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@
 # define ORDERED 1
 # define NOT_ORDERED 0
 # define REPEATED -1
+# define POS 1
+# define VAL 0
 
 typedef struct s_number
 {
 	int				val;
 	struct s_number	*next;
-	struct s_number	*prev;
+	int				movs;
 	int				pos;
 }	t_num;
 
@@ -45,13 +47,17 @@ t_num	*sort23(t_num **a);
 t_num	*sort45(t_num **a, t_num **b);
 char	**ft_split(char const *s, char c);
 void	print_nodes(t_num *stack); //DELETE
-int		min(t_num *stack);
-int		max(t_num *stack);
+int		min(t_num *stack, int flag);
+int		max(t_num *stack, int flag);
 int		is_sorted(t_num	*stack);
 t_num	*swap(t_num *stack);
 t_num	*rotate(t_num *stack);
 t_num	*push_a(t_num **stack_a, t_num *stack_b);
 t_num	*push_b(t_num *stack_a, t_num **stack_b);
 t_num	*rev_rotate(t_num *stack);
+t_num	*ra(t_num *stack_a);
+t_num	*rb(t_num *stack_b);
+t_num	*sa(t_num *stack_a);
+t_num	*rra(t_num *stack_a);
 
 #endif
