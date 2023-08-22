@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/22 14:22:04 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:24:30 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,18 @@ void	shake_it_up(t_movs movs, t_num	**a, t_num **b)
 	movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb + movs.rrr + movs.rr;
 	while (movs.tot > 0)
 	{
+		while (movs.rr-- > 0)
+			rr ();
+		while (movs.rrr-- > 0)
+			rrr ();
 		while (movs.ra-- > 0)
 			ra ();
 		while (movs.rb-- > 0)
 			rb ();
+		while (movs.rra-- > 0)
+			rra ();
+		while (movs.rrb-- > 0)
+			rrb ();
 	}
 }
 

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mov_2.c                                            :+:      :+:    :+:   */
+/*   m_swap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 18:23:21 by albert            #+#    #+#             */
-/*   Updated: 2023/08/21 15:46:28 by alcaball         ###   ########.fr       */
+/*   Created: 2023/08/22 15:30:57 by alcaball          #+#    #+#             */
+/*   Updated: 2023/08/22 15:37:43 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_num	*ra(t_num *stack_a)
+t_num	*swap(t_num *stack)
 {
-	stack_a = rotate(stack_a);
-	write(1, "ra\n", 3);
-	return (stack_a);
-}
+	t_num	*temp;
 
-t_num	*rb(t_num *stack_b)
-{
-	stack_b = rotate(stack_b);
-	write(1, "rb\n", 3);
-	return (stack_b);
+	temp = stack->next;
+	stack->next = temp->next;
+	temp->next = stack;
+	stack = temp;
+	return (stack);
 }
 
 t_num	*sa(t_num *stack_a)
@@ -33,9 +30,17 @@ t_num	*sa(t_num *stack_a)
 	return (stack_a);
 }
 
-t_num	*rra(t_num *stack_a)
+t_num	*sb(t_num *stack_b)
 {
-	stack_a = rev_rotate(stack_a);
-	write (1, "rra\n", 3);
-	return (stack_a);
+	stack_b = swap(stack_b);
+	write(1, "sb\n", 3);
+	return (stack_b);
+}
+
+t_num	*ss(t_num *stack_a, t_num *stack_b)
+{
+	stack_a = swap(stack_a);
+	stack_b = swap(stack_b);
+	write (1, "ss\n", 3);
+	return ();
 }

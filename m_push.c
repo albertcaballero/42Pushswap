@@ -3,53 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 15:07:55 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/17 18:56:44 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/22 15:31:23 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_num	*swap(t_num *stack)
-{
-	t_num	*temp;
-
-	temp = stack->next;
-	stack->next = temp->next;
-	temp->next = stack;
-	stack = temp;
-	return (stack);
-}
-
-t_num	*rotate(t_num *stack)
-{
-	t_num	*temp;
-	t_num	*head;
-
-	head = stack->next;
-	temp = stack;
-	while (stack->next)
-		stack = stack->next;
-	stack->next = temp;
-	temp->next = NULL;
-	return (head);
-}
-
-t_num	*rev_rotate(t_num *stack)
-{
-	t_num	*head;
-	t_num	*temp;
-
-	temp = stack;
-	while ((stack->next)->next)
-		stack = stack->next;
-	head = stack->next;
-	stack->next = NULL;
-	head->next = temp;
-	return (head);
-}
 
 t_num	*push_b(t_num *stack_a, t_num **stack_b)
 {
