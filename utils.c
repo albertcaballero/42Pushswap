@@ -6,24 +6,24 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/21 15:40:03 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:10:01 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_num	*put_index(t_num *stack)
+t_movs	init_movs(void)
 {
-	int	index;
+	t_movs movs;
 
-	index = 0;
-	while (stack)
-	{
-		stack->pos = index;
-		index++;
-		stack = stack->next;
-	}
-	return (stack);
+	movs.ra = 0;
+	movs.rb = 0;
+	movs.rr = 0;
+	movs.rra = 0;
+	movs.rrb = 0;
+	movs.rrr = 0;
+	movs.tot = 0;
+	return (movs);
 }
 
 int	ft_lstsize(t_num *lst)
@@ -71,7 +71,7 @@ int	min(t_num *stack, int flag)
 	}
 	if (flag == POS)
 		return (posmin);
-	if (flag == VAL)
+	else
 		return (min);
 }
 
@@ -96,6 +96,6 @@ int	max(t_num *stack, int flag)
 	}
 	if (flag == POS)
 		return (posmax);
-	if (flag == VAL)
+	else
 		return (max);
 }

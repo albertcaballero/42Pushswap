@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/22 16:14:54 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 17:42:30 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	head = stack_a;
 	while (i < (argc + flag))
 	{
-		stack_a->pos = i - flag;
 		stack_a->val = atoi(argv[i]);
 		if (i == argc + flag - 1)
 			break ;
@@ -40,18 +39,14 @@ t_num	*create_stack(int argc, char **argv, int flag)
 //DELETE
 void	print_nodes(t_num *stack)
 {
+	write(1, "\n---------\n", 11);
 	while (stack)
 	{
-		write(1, "\n", 1);
-		write(1, "pos:", 4);
-		ft_putnbr_fd (stack->pos, 1);
-		write(1, "\n", 1);
-		write(1, "val:", 4);
 		ft_putnbr_fd (stack->val, 1);
-		write(1, "\n", 1);
+		write(1, "  ||  ", 6);
 		stack = stack->next;
 	}
-	write(1, "---------\n", 10);
+	write(1, "\n---------\n", 11);
 }
 
 int	main(int argc, char **argv)
@@ -84,9 +79,9 @@ int	main(int argc, char **argv)
 	if (argc <= 5)
 		sort_few (argc, &stack_a, &stack_b);
 	else
-		algorithm (&stack_a, &stack_b);
+		stack_a = algorithm (&stack_a, &stack_b);
+	print_nodes(stack_a);
 	//IF FLAG_QUOTES, FREE(SPLIT)
 	//FREE STACK A AL FINAL DEL PROGRAMA
-	print_nodes(stack_a);
 	return (0);
 }

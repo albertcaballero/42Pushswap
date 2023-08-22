@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/22 16:15:45 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 18:14:21 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ t_movs	findcheap(t_num *a, t_num *b)
 	int		index;
 
 	i = 0;
-	small.tot = 800;
+	small.tot = INT_MAX;
+	movs = init_movs();
 	while (a)
 	{
 		index = findtop(b, a->val);
@@ -96,34 +97,43 @@ t_movs	optimize(t_movs movs)
 	return (movs);
 }
 
-void	shake_it_up(t_movs movs, t_num	**a, t_num **b)
+void	shake_it(t_movs movs, t_num	**a, t_num **b)
 {
-	movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb + movs.rrr + movs.rr;
 	while (movs.rr-- > 0)
 		rr (a, b);
 	while (movs.rrr-- > 0)
 		rrr (a, b);
 	while (movs.ra-- > 0)
-		a = ra (*a);
+		*a = ra (*a);
 	while (movs.rb-- > 0)
-		b = rb (*b);
+		*b = rb (*b);
 	while (movs.rra-- > 0)
-		a = rra (*a);
+		*a = rra (*a);
 	while (movs.rrb-- > 0)
-		b = rrb (*b);
+		*b = rrb (*b);
 }
 
-t_num	*algorithm (t_num **a, t_num **b)
+t_num	*algorithm(t_num **a, t_num **b)
 {
 	t_movs	movs;
 
-	push_b(*a, b);
-	push_b(*a, b);
-	movs = findcheap(*a, *b);
-	movs = optimize(movs);
-	shake_it_up (movs, a, b);
-	if (is_sorted(a) == ORDERED)
+	*a = push_b(*a, b);
+	*a = push_b(*a, b);
+	while (*a)
+	{
+		movs = findcheap(*a, *b);
+		movs = optimize(movs);
+		shake_it (movs, a, b);
+		*a = push_b (*a, b);
+	}
+	while (max(*b, POS) != 0) //AQUI - A LO MEJOR EL RRB LO HACE MAL O SINO EL OPTIMIZE/FINDCHEAP
+		*b = rb(*b);
+	print_nodes (*b);
+	while (*b)
+		*b = push_a (a, *b);
+	if (is_sorted(*a) == ORDERED)
 		write (1, "----ok----\n", 11);
 	else
 		write (1, "----no----\n", 11);
+	return (*a);
 }
