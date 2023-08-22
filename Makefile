@@ -11,7 +11,8 @@ PURPLE  =   \033[38;5;93m
 PINK	=	\033[38;5;219m
 NC      =   \033[0m
 
-SRC = push_swap.c argv_cleaner.c utils.c sort5.c movements.c algorithm.c mov_2.c
+SRC = push_swap.c argv_cleaner.c utils.c sort5.c algorithm.c\
+	m_push.c m_revrotate.c m_rotate.c m_swap.c
 
 all: makelib $(NAME)
 
@@ -47,8 +48,8 @@ FILE2_N = $(shell ls | grep *.txt | wc -l)
 forbidden:
 	@printf "$(BLUE)\n=====FINDING DELETEABLES=====\n\n"
 	@printf "${YELLOW}"
-	@grep "printf" $(SRC)
-	@grep "//DELETE" $(SRC)
+	@grep "printf" $(SRC) || true
+	@grep "//DELETE" $(SRC) || true
 	@printf "${PINK}HAY %i PRINTF Y %i BLOQUES A BORRAR\n${NC}" $(PRINT_N) $(DEL_N)
 	@printf "$(BLUE)\n=====SCANNING EXTRA FILES=====\n\n"
 	@ls | grep a.out || true

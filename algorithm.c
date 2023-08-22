@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/22 15:24:30 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:15:45 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,24 +99,21 @@ t_movs	optimize(t_movs movs)
 void	shake_it_up(t_movs movs, t_num	**a, t_num **b)
 {
 	movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb + movs.rrr + movs.rr;
-	while (movs.tot > 0)
-	{
-		while (movs.rr-- > 0)
-			rr ();
-		while (movs.rrr-- > 0)
-			rrr ();
-		while (movs.ra-- > 0)
-			ra ();
-		while (movs.rb-- > 0)
-			rb ();
-		while (movs.rra-- > 0)
-			rra ();
-		while (movs.rrb-- > 0)
-			rrb ();
-	}
+	while (movs.rr-- > 0)
+		rr (a, b);
+	while (movs.rrr-- > 0)
+		rrr (a, b);
+	while (movs.ra-- > 0)
+		a = ra (*a);
+	while (movs.rb-- > 0)
+		b = rb (*b);
+	while (movs.rra-- > 0)
+		a = rra (*a);
+	while (movs.rrb-- > 0)
+		b = rrb (*b);
 }
 
-t_num	*algorithm_main(t_num **a, t_num **b)
+t_num	*algorithm (t_num **a, t_num **b)
 {
 	t_movs	movs;
 
@@ -125,4 +122,8 @@ t_num	*algorithm_main(t_num **a, t_num **b)
 	movs = findcheap(*a, *b);
 	movs = optimize(movs);
 	shake_it_up (movs, a, b);
+	if (is_sorted(a) == ORDERED)
+		write (1, "----ok----\n", 11);
+	else
+		write (1, "----no----\n", 11);
 }

@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/21 16:55:20 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 16:14:54 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	main(int argc, char **argv)
 	if (argc <= 5)
 		sort_few (argc, &stack_a, &stack_b);
 	else
-		sort(&stack_a, &stack_b);
+		algorithm (&stack_a, &stack_b);
 	//IF FLAG_QUOTES, FREE(SPLIT)
 	//FREE STACK A AL FINAL DEL PROGRAMA
 	print_nodes(stack_a);
