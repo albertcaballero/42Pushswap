@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/21 16:57:39 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 13:39:12 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@
 
 typedef struct s_movements
 {
-	int ra;
-	int rb;
-	int rra;
+	int	ra;
+	int	rb;
+	int	rra;
 	int	rrb;
+	int	rrr;
+	int	rr;
 	int	tot;
 }	t_movs;
 

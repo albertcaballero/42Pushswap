@@ -6,13 +6,13 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/22 12:40:42 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/22 14:22:04 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	findtop(t_movs *movs, t_num *b, int aval)
+int	findtop(t_num *b, int aval)
 {
 	int	top;
 	int	j;
@@ -38,7 +38,7 @@ int	findtop(t_movs *movs, t_num *b, int aval)
 	}
 }
 
-int	findcheap(t_num *a, t_num *b)
+t_movs	findcheap(t_num *a, t_num *b)
 {
 	int		i;
 	t_movs	movs;
@@ -49,7 +49,7 @@ int	findcheap(t_num *a, t_num *b)
 	small.tot = 800;
 	while (a)
 	{
-		index = findtop(&movs, b, a->val);
+		index = findtop(b, a->val);
 		if (index > (ft_lstsize (b) / 2))
 			movs.rrb = ft_lstsize (b) - index;
 		else
@@ -64,17 +64,57 @@ int	findcheap(t_num *a, t_num *b)
 		if (movs.tot < small.tot)
 			small.tot = movs.tot;
 	}
+	return (movs);
 }
 
-// https://medium.com/@ayogun/push-swap-c1f5d2d41e97 
+t_movs	optimize(t_movs movs)
+{
+	if (movs.ra >= movs.rb)
+	{
+		movs.rr = movs.rb;
+		movs.ra = movs.ra - movs.rb;
+		movs.rb = 0;
+	}
+	else
+	{
+		movs.rr = movs.ra;
+		movs.rb = movs.rb - movs.ra;
+		movs.ra = 0;
+	}
+	if (movs.rra >= movs.rrb)
+	{
+		movs.rrr = movs.rrb;
+		movs.rra = movs.rra - movs.rrb;
+		movs.rrb = 0;
+	}
+	else
+	{
+		movs.rrr = movs.rra;
+		movs.rrb = movs.rrb - movs.rra;
+		movs.rra = 0;
+	}
+	return (movs);
+}
+
+void	shake_it_up(t_movs movs, t_num	**a, t_num **b)
+{
+	movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb + movs.rrr + movs.rr;
+	while (movs.tot > 0)
+	{
+		while (movs.ra-- > 0)
+			ra ();
+		while (movs.rb-- > 0)
+			rb ();
+	}
+}
+
 t_num	*algorithm_main(t_num **a, t_num **b)
 {
-	int	size_a;
-	int	maxval;
-	int	minval;
+	t_movs	movs;
 
-	size_a = ft_lstsize (*a);
 	push_b(*a, b);
 	push_b(*a, b);
-	findcheap(*a, *b);
+	movs = findcheap(*a, *b);
+	movs = optimize(movs);
+	shake_it_up (movs, a, b);
 }
