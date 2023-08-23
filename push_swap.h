@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 13:07:55 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:36:04 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_number
 	struct s_number	*next;
 }	t_num;
 
-int		arg_parse(int argc, char **argv);
+int		arg_parse(int argc, char **argv, int flag);
 int		check_repeated(t_num *stack);
 int		ft_isdigit(int c);
 size_t	ft_strlen(const char *str);

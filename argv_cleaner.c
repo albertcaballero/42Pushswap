@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/16 12:40:06 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 14:02:29 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@ int	clean_start(char *num)
 {
 	int	j;
 
-	j = 0;
-	if (num[0] == 45 || num[0] == 43)
-		j++;
+	j = num[0] == 45 || num[0] == 43;
 	while (num[j] == 48)
 		j++;
 	if (ft_strlen(&num[j]) > 10)
 		return (-1);
-	j = 0;
+	j = num[0] == 45 || num[0] == 43;
+	if (num[j] == 0)
+		return (-1);
 	while (num[j] != 0)
 	{
-		if (ft_isdigit(num[j]) == 0 && (num[0] != 45 && num[0] != 43))
+		if (ft_isdigit(num[j]) == 0)
 			return (-1);
 		j++;
 	}
@@ -53,12 +53,12 @@ int	check_repeated(t_num *stack)
 	return (0);
 }
 
-int	arg_parse(int argc, char **argv)
+int	arg_parse(int argc, char **argv, int flag)
 {
 	int		i;
 	long	temp;
 
-	i = 1;
+	i = flag;
 	while (i < argc)
 	{
 		if (clean_start(argv[i]) == -1)

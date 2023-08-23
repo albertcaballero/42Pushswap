@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 13:07:36 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 14:03:24 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ t_num	*splitter(int argc, char **argv)
 	i = 0;
 	argv = ft_split(argv[1], 32);
 	argc = 0;
+	if (argv[argc] == NULL)
+		return (NULL);
 	while (argv[argc] != NULL)
 		argc++;
-	stack_a = create_stack(argc, argv, QUOTES);
-	if (arg_parse(argc, argv) == -1)
+	if (arg_parse(argc, argv, QUOTES) == -1)
 		return (NULL);
+	stack_a = create_stack(argc, argv, QUOTES);
 	while (argv[i] != NULL)
 	{
 		free(argv[i]);
@@ -90,7 +92,7 @@ int	main(int argc, char **argv)
 	else
 	{
 		stack_a = create_stack(argc, argv, NO_QUOTES);
-		if (arg_parse(argc, argv) == -1)
+		if (arg_parse(argc, argv, NO_QUOTES) == -1)
 			return (write (2, "Error\n", 6));
 	}
 	if (check_repeated(stack_a) == REPEATED)
