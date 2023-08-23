@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 18:23:21 by albert            #+#    #+#             */
-/*   Updated: 2023/08/22 16:53:01 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:50:22 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_num	*rotate(t_num *stack)
 	t_num	*temp;
 	t_num	*head;
 
+	if (ft_lstsize(stack) < 2)
+		return (stack);
 	head = stack->next;
 	temp = stack;
 	while (stack->next)

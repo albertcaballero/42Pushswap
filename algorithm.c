@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/23 11:42:43 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 17:51:06 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	findtop(t_num *b, int aval)
 	int	j;
 	int	pos;
 
-	top = -2147483648;
+	top = INT_MIN;
 	j = 0;
 	pos = 0;
-	if (aval > max(b, VAL) || aval < min(b, VAL))
+	if (aval <= min(b, VAL) || aval >= max(b, VAL))
 		pos = max(b, POS);
 	else
 	{
@@ -48,14 +48,15 @@ t_movs	findcheap(t_num *a, t_num *b, int lena, int lenb)
 	i = 0;
 	small.tot = INT_MAX;
 	movs = init_movs();
+	lena = lenb;
 	while (a)
 	{
-		if (findtop(b, a->val) > (lenb / 2))
-			movs.rrb = lenb - findtop(b, a->val);
+		if (findtop(b, a->val) >= (lenb / 2))
+			movs.rrb = lenb - findtop(b, a->val); //AQUI
 		else
 			movs.rb = findtop(b, a->val);
-		if (i > (lena / 2))
-			movs.rra = lena - i;
+		if (i >= (lena / 2))
+			movs.rra = lena - i; //AQUI
 		else
 			movs.ra = i;
 		i++;
@@ -125,9 +126,16 @@ t_num	*algorithm(t_num **a, t_num **b)
 		shake_it (movs, a, b);
 		*a = push_b (*a, b);
 	}
+//	print_nodes (*b);
 	while (max(*b, POS) != 0)
-		*b = rb(*b);
+	{
+		if (max(*b, POS) > ft_lstsize(*b) / 2)
+			*b = rrb(*b);
+		else
+			*b = rb(*b);
+	}
 	while (*b)
 		*b = push_a (a, *b);
+//	print_nodes (*a);
 	return (*a);
 }

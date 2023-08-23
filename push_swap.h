@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 13:36:04 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 16:11:00 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ t_num	*rra(t_num *stack_a);
 t_num	*rrb(t_num *stack_b);
 void	rrr(t_num **stack_a, t_num **stack_b);
 t_movs	init_movs(void);
+void	print_nodes(t_num	*a);
 
 #endif
