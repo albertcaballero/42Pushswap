@@ -56,7 +56,7 @@ forbidden:
 	@ls | grep *.txt || true
 	@printf "${PINK}HAY %i ARCHIVOS A BORRAR\n${NC}" $(shell expr $(FILE_N) + $(FILE2_N))
 	@printf "$(BLUE)\n=====EXECUTING NORMINETTE=====\n\n${RED}"
-	@norminette > /dev/null && printf "$(GREEN)OK\n" || norminette | grep Error
+	@norminette > /dev/null && printf "$(GREEN)	---OK---\n\n" || norminette | grep Error
 	@printf "${NC}"
 
 .PHONY: all clean fclean re bonus

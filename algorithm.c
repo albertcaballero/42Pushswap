@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/22 18:14:21 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:42:43 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,56 +16,55 @@ int	findtop(t_num *b, int aval)
 {
 	int	top;
 	int	j;
-	int	posmaxb;
+	int	pos;
 
 	top = -2147483648;
 	j = 0;
+	pos = 0;
 	if (aval > max(b, VAL) || aval < min(b, VAL))
-	{
-		posmaxb = max(b, POS);
-		return (posmaxb);
-	}
+		pos = max(b, POS);
 	else
 	{
 		while (b)
 		{
 			if (b->val > top && b->val < aval)
+			{
+				pos = j;
 				top = b->val;
+			}
 			j++;
 			b = b->next;
 		}
-		return (j);
 	}
+	return (pos);
 }
 
-t_movs	findcheap(t_num *a, t_num *b)
+t_movs	findcheap(t_num *a, t_num *b, int lena, int lenb)
 {
 	int		i;
 	t_movs	movs;
 	t_movs	small;
-	int		index;
 
 	i = 0;
 	small.tot = INT_MAX;
 	movs = init_movs();
 	while (a)
 	{
-		index = findtop(b, a->val);
-		if (index > (ft_lstsize (b) / 2))
-			movs.rrb = ft_lstsize (b) - index;
+		if (findtop(b, a->val) > (lenb / 2))
+			movs.rrb = lenb - findtop(b, a->val);
 		else
-			movs.rb = index;
-		if (i > (ft_lstsize (a) / 2))
-			movs.rra = ft_lstsize (a) - i;
+			movs.rb = findtop(b, a->val);
+		if (i > (lena / 2))
+			movs.rra = lena - i;
 		else
 			movs.ra = i;
-		a = a->next;
 		i++;
 		movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb;
 		if (movs.tot < small.tot)
-			small.tot = movs.tot;
+			small = movs;
+		a = a->next;
 	}
-	return (movs);
+	return (small);
 }
 
 t_movs	optimize(t_movs movs)
@@ -121,19 +120,14 @@ t_num	*algorithm(t_num **a, t_num **b)
 	*a = push_b(*a, b);
 	while (*a)
 	{
-		movs = findcheap(*a, *b);
+		movs = findcheap(*a, *b, ft_lstsize(*a), ft_lstsize(*b));
 		movs = optimize(movs);
 		shake_it (movs, a, b);
 		*a = push_b (*a, b);
 	}
-	while (max(*b, POS) != 0) //AQUI - A LO MEJOR EL RRB LO HACE MAL O SINO EL OPTIMIZE/FINDCHEAP
+	while (max(*b, POS) != 0)
 		*b = rb(*b);
-	print_nodes (*b);
 	while (*b)
 		*b = push_a (a, *b);
-	if (is_sorted(*a) == ORDERED)
-		write (1, "----ok----\n", 11);
-	else
-		write (1, "----no----\n", 11);
 	return (*a);
 }

@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/22 18:10:01 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:08:01 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_movs	init_movs(void)
 {
-	t_movs movs;
+	t_movs	movs;
 
 	movs.ra = 0;
 	movs.rb = 0;

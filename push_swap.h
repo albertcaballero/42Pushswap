@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/22 18:10:08 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:07:55 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-
 
 # define QUOTES 0
 # define NO_QUOTES 1
@@ -51,11 +50,10 @@ long	ft_atol(const char *str);
 int		ft_atoi(const char *str);
 void	ft_putnbr_fd(int n, int fd);
 int		ft_lstsize(t_num *lst);
-void	sort_few(int count, t_num **stack_a, t_num	**stack_b);
+void	sort(int count, t_num **stack_a, t_num	**stack_b);
 t_num	*sort23(t_num **a);
 t_num	*sort45(t_num **a, t_num **b);
 char	**ft_split(char const *s, char c);
-void	print_nodes(t_num *stack); //DELETE
 int		min(t_num *stack, int flag);
 int		max(t_num *stack, int flag);
 int		is_sorted(t_num	*stack);
