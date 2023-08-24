@@ -6,13 +6,13 @@
 /*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/24 18:32:22 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/24 19:29:03 by albert           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	findtop(t_num *b, int aval)
+int	findtop(t_num *b, int aval) //YOU ARE THE PROBLEM (maybe)
 {
 	int	top;
 	int	j;
@@ -125,7 +125,6 @@ t_num	*algorithm(t_num **a, t_num **b)
 		shake_it (movs, a, b);
 		*a = push_b (*a, b);
 	}
-//	print_nodes (*b);
 	while (max(*b, POS) != 0)
 	{
 		if (max(*b, POS) > ft_lstsize(*b) / 2)
@@ -135,6 +134,8 @@ t_num	*algorithm(t_num **a, t_num **b)
 	}
 	while (*b)
 		*b = push_a (a, *b);
-//	print_nodes (*a);
+	print_nodes (*a);
+	if (is_sorted(*a) == ORDERED)
+		write (1, "ok\n", 3);
 	return (*a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
+/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:49:06 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 16:11:00 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/08/24 19:02:44 by albert           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ t_num	*rrb(t_num *stack_b);
 void	rrr(t_num **stack_a, t_num **stack_b);
 t_movs	init_movs(void);
 void	print_nodes(t_num	*a);
+int		ft_printf(const char *str, ...);
 
 #endif
