@@ -6,7 +6,7 @@
 /*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/24 19:29:03 by albert           ###   ########.fr       */
+/*   Updated: 2023/08/24 22:28:00 by albert           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,5 +137,10 @@ t_num	*algorithm(t_num **a, t_num **b)
 	print_nodes (*a);
 	if (is_sorted(*a) == ORDERED)
 		write (1, "ok\n", 3);
+	else
+	{
+		ft_printf("and another one\n");
+		*a = algorithm (a, b); //hacerla recursiva da OK y proporciona mucha info, mcuhisima
+	}
 	return (*a);
 }
