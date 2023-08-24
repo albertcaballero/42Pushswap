@@ -66,8 +66,8 @@ ARG4="0"
 ARG5="0"
 
 check:
-#	@./push_swap $(ARG1)
-	@./push_swap $(ARG1) | ./checker_Mac $(ARG1)
+	@./push_swap $(ARG1)
+#	@./push_swap $(ARG1) | ./checker_Mac $(ARG1)
 # ./push_swap $(ARG3) | ./checker_Mac $(ARG3)
 # ./push_swap $(ARG4) | ./checker_Mac $(ARG4)
 # ./push_swap $(ARG5) | ./checker_Mac $(ARG5)
