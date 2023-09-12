@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 16:32:46 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:13:29 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,6 @@ int	main(int argc, char **argv)
 	if (check_repeated(stack_a) == REPEATED)
 		return (write (2, "Error\n", 6));
 	sort (argc, &stack_a, &stack_b);
-	//freestack(stack_a);
+	freestack(stack_a);
 	return (0);
 }

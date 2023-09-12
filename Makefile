@@ -17,18 +17,18 @@ SRC = push_swap.c argv_cleaner.c utils.c sort5.c algorithm.c\
 all: makelib $(NAME)
 
 $(NAME): $(LIBRARY) Makefile $(SRC) libft/libft.a
-	$(CC) $(CFLAGS) $(SRC) -L./libft -lft -L../printf -lftprintf -o $(NAME)
+	$(CC) $(CFLAGS) $(SRC) -L./libft -lft -L./printf -lftprintf -o $(NAME)
 
 makelib:
 	$(MAKE) -C ./libft bonus
-	$(MAKE) -C ../printf all
+	$(MAKE) -C ./printf all
 
 clean:
 	$(MAKE) -C ./libft clean
 
 fclean: clean
 	$(MAKE) -C ./libft fclean
-	$(MAKE) -C ../printf fclean
+	$(MAKE) -C ./printf fclean
 	rm -f $(NAME)
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:50:45 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 17:50:19 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:13:04 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ t_num	*sort45(t_num **a, t_num **b)
 {
 	while (ft_lstsize(*a) > 3)
 	{
-		*a = ra (*a);
+		if (min(*a, POS) > (ft_lstsize(*a) / 2))
+			*a = rra(*a);
+		else
+			*a = ra (*a);
 		if (min(*a, POS) == 0)
 			*a = push_b (*a, b);
 	}

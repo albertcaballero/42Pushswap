@@ -3,16 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 00:57:07 by albert            #+#    #+#             */
-/*   Updated: 2023/08/24 22:28:00 by albert           ###   ########.fr       */
+/*   Updated: 2023/09/12 16:54:53 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	findtop(t_num *b, int aval) //YOU ARE THE PROBLEM (maybe)
+t_movs	optimize(t_movs movs);
+
+int	findtop(t_num *b, int aval)
 {
 	int	top;
 	int	j;
@@ -47,20 +49,21 @@ t_movs	findcheap(t_num *a, t_num *b, int lena, int lenb)
 
 	i = 0;
 	small.tot = INT_MAX;
-	movs = init_movs();
 	while (a)
 	{
+		movs = init_movs();
 		if (findtop(b, a->val) >= (lenb / 2))
-			movs.rrb = lenb - findtop(b, a->val); //AQUI
+			movs.rrb = lenb - findtop(b, a->val);
 		else
 			movs.rb = findtop(b, a->val);
 		if (i >= (lena / 2))
-			movs.rra = lena - i; //AQUI
+			movs.rra = lena - i;
 		else
 			movs.ra = i;
 		i++;
-		movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb;
-		if (movs.tot < small.tot)
+		movs = optimize(movs);
+		movs.tot = movs.ra + movs.rb + movs.rra + movs.rrb + movs.rr + movs.rrr;
+		if (movs.tot <= small.tot)
 			small = movs;
 		a = a->next;
 	}
@@ -121,7 +124,6 @@ t_num	*algorithm(t_num **a, t_num **b)
 	while (*a)
 	{
 		movs = findcheap(*a, *b, ft_lstsize(*a), ft_lstsize(*b));
-		movs = optimize(movs);
 		shake_it (movs, a, b);
 		*a = push_b (*a, b);
 	}
@@ -134,13 +136,5 @@ t_num	*algorithm(t_num **a, t_num **b)
 	}
 	while (*b)
 		*b = push_a (a, *b);
-	print_nodes (*a);
-	if (is_sorted(*a) == ORDERED)
-		write (1, "ok\n", 3);
-	else
-	{
-		ft_printf("and another one\n");
-		*a = algorithm (a, b); //hacerla recursiva da OK y proporciona mucha info, mcuhisima
-	}
 	return (*a);
 }
