@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:48:20 by alcaball          #+#    #+#             */
-/*   Updated: 2023/09/13 12:44:34 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:31:25 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	checker(t_num *stack_a, t_num *stack_b)
 		write(1, "KO\n", 3);
 	freestack(stack_a);
 }
-
 
 int	main(int argc, char **argv)
 {
