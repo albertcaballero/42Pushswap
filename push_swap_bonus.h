@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:48:23 by alcaball          #+#    #+#             */
-/*   Updated: 2023/09/13 09:29:49 by albert           ###   ########.fr       */
+/*   Updated: 2023/09/13 11:32:24 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@
 # include <stdlib.h>
 # include <limits.h>
 
-# define ORDERED 1
-# define NOT_ORDERED 0
 # define QUOTES 0
 # define NO_QUOTES 1
+# define ORDERED 1
+# define NOT_ORDERED 0
 # define REPEATED -1
+# define POS 1
+# define VAL 0
 
 typedef struct s_number
 {
@@ -44,5 +46,16 @@ int		ft_lstsize(t_num *lst);
 int		is_sorted(t_num	*stack);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*get_next_line(int fd);
+t_num	*splitter(int argc, char **argv);
+t_num	*create_stack(int argc, char **argv, int flag);
+int		check_repeated(t_num *stack);
+int		arg_parse(int argc, char **argv, int flag);
+int		ft_isdigit(int c);
+size_t	ft_strlen(const char *str);
+long	ft_atol(const char *str);
+int		ft_atoi(const char *str);
+void	ft_putnbr_fd(int n, int fd);
+int		ft_lstsize(t_num *lst);
+char	**ft_split(char const *s, char c);
 
 #endif

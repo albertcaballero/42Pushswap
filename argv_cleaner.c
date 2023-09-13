@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 13:35:24 by alcaball          #+#    #+#             */
-/*   Updated: 2023/08/23 14:02:29 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:45:29 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	arg_parse(int argc, char **argv, int flag)
 	long	temp;
 
 	i = flag;
-	while (i < argc)
+	while (i < argc + flag)
 	{
 		if (clean_start(argv[i]) == -1)
 			return (-1);

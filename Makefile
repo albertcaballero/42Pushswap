@@ -16,7 +16,9 @@ NC      =   \033[0m
 SRC = push_swap.c argv_cleaner.c utils.c sort5.c algorithm.c\
 	m_push.c m_revrotate.c m_rotate.c m_swap.c
 
-BONUSRC = checker.c utils_bonus.c
+BONUSRC = checker.c utils_bonus.c gnl/get_next_line.c gnl/get_next_line_utils.c argv_cleaner_bonus.c\
+	m_push_bonus.c m_revrotate_bonus.c m_rotate_bonus.c\
+	m_swap_bonus.c
 
 all: makelib $(NAME)
 
@@ -30,13 +32,13 @@ makelib:
 clean:
 	$(MAKE) -C ./libft clean
 
-bonus: $(BONUSNAME) Makefile $(BONUSLIB) $(BONUSRC)
-	$(CC) $(CFLAGS) $(BONUSRC) -o $(BONUSNAME)
+bonus: makelib Makefile $(BONUSLIB) $(BONUSRC) libft/libft.a
+	$(CC) $(CFLAGS) $(BONUSRC) -L./libft -lft -L./printf -lftprintf -o $(BONUSNAME) 
 
 fclean: clean
 	$(MAKE) -C ./libft fclean
 	$(MAKE) -C ./printf fclean
-	rm -f $(NAME)
+	rm -f $(NAME) $(BONUSNAME)
 
 re: fclean all
 

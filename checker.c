@@ -3,48 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: albert <albert@student.42.fr>              +#+  +:+       +#+        */
+/*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 17:48:20 by alcaball          #+#    #+#             */
-/*   Updated: 2023/09/13 09:29:27 by albert           ###   ########.fr       */
+/*   Updated: 2023/09/13 12:44:34 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-void	checker(t_num *stack_a, t_num *stack_b)
+int	check_movements(char *mov, t_num **a, t_num **b)
 {
-	char	*mov;
-
-	mov = malloc (sizeof(char) * (3 + 1));
-	while (mov != NULL)
-	{
-		mov = get_next_line(1);
-		if (ft_strncmp(mov, "sa\n", 3) == 0)
-			stack_a = sa(stack_a);
-		if (ft_strncmp(mov, "sb\n", 3) == 0)
-			stack_b = sb(stack_b);
-		if (ft_strncmp(mov, "ra\n", 3) == 0)
-			stack_a = ra(stack_a);
-		if (ft_strncmp(mov, "rb\n", 3) == 0)
-			stack_b = rb(stack_b);
-		if (ft_strncmp(mov, "rr\n", 3) == 0)
-			rr(&stack_a, &stack_b);
-		if (ft_strncmp(mov, "pa\n", 3) == 0)
-			stack_b = push_a(&stack_a, stack_b);
-		if (ft_strncmp(mov, "pb\n", 3) == 0)
-			stack_a = push_b(stack_a, &stack_b);
-		if (ft_strncmp(mov, "rra\n", 4) == 0)
-			stack_a = rra(stack_a);
-		if (ft_strncmp(mov, "rrb\n", 4) == 0)
-			stack_b = rrb(stack_b);
-		if (ft_strncmp(mov, "rrr\n", 4) == 0)
-			rrr(&stack_a, &stack_b);
-	}
-	if (is_sorted(stack_a) == ORDERED)
-		write(1, "ok\n", 3);
+	if (ft_strncmp(mov, "sa\n", 3) == 0)
+		*a = sa(*a);
+	else if (ft_strncmp(mov, "sb\n", 3) == 0)
+		*b = sb(*b);
+	else if (ft_strncmp(mov, "ra\n", 3) == 0)
+		*a = ra(*a);
+	else if (ft_strncmp(mov, "rb\n", 3) == 0)
+		*b = rb(*b);
+	else if (ft_strncmp(mov, "rr\n", 3) == 0)
+		rr(a, b);
+	else if (ft_strncmp(mov, "pa\n", 3) == 0)
+		*b = push_a(a, *b);
+	else if (ft_strncmp(mov, "pb\n", 3) == 0)
+		*a = push_b(*a, b);
+	else if (ft_strncmp(mov, "rra\n", 4) == 0)
+		*a = rra(*a);
+	else if (ft_strncmp(mov, "rrb\n", 4) == 0)
+		*b = rrb(*b);
+	else if (ft_strncmp(mov, "rrr\n", 4) == 0)
+		rrr(a, b);
+	else if (ft_strncmp(mov, "ss\n", 3) == 0)
+		ss(a, b);
 	else
-		write(1, "ko\n", 3);
+		return (write (2, "Error\n", 6));
+	return (42);
 }
 
 void	freestack(t_num *stack)
@@ -58,7 +52,29 @@ void	freestack(t_num *stack)
 		free (temp);
 		temp = stack;
 	}
+	free(stack);
 }
+
+void	checker(t_num *stack_a, t_num *stack_b)
+{
+	char	*mov;
+
+	mov = get_next_line(0);
+	while (mov != NULL)
+	{
+		if (check_movements(mov, &stack_a, &stack_b) != 42)
+			return ;
+		free (mov);
+		mov = get_next_line(0);
+	}
+	free (mov);
+	if (is_sorted(stack_a) == ORDERED && ft_lstsize(stack_b) == 0)
+		write(1, "OK\n", 3);
+	else
+		write(1, "KO\n", 3);
+	freestack(stack_a);
+}
+
 
 int	main(int argc, char **argv)
 {
@@ -84,15 +100,5 @@ int	main(int argc, char **argv)
 	if (check_repeated(stack_a) == REPEATED)
 		return (write (2, "Error\n", 6));
 	checker(stack_a, stack_b);
-	freestack(stack_a);
 	return (0);
 }
-
-/*
-create stack from argv (igual que el main)
-read from stdout in while
-	strncmp with each of the movements
-	execute movement
-		los movs no tienen que imprimir nada
-is sorted == true then OK
-*/
