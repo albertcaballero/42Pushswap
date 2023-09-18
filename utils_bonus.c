@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:39:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/09/13 12:14:47 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/09/18 11:57:49 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_num	*create_stack(int argc, char **argv, int flag)
 	head = stack_a;
 	while (i < (argc + flag))
 	{
-		stack_a->val = atoi(argv[i]);
+		stack_a->val = ft_atoi(argv[i]);
 		if (i == argc + flag - 1)
 			break ;
 		stack_a->next = malloc(sizeof(t_num));
