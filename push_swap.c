@@ -6,7 +6,7 @@
 /*   By: alcaball <alcaball@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 12:48:58 by alcaball          #+#    #+#             */
-/*   Updated: 2023/09/18 11:57:12 by alcaball         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:29:54 by alcaball         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ int	main(int argc, char **argv)
 	argc--;
 	stack_b = NULL;
 	if (argc < 1)
-		return (write (2, "Error\n", 6));
+		return (0);
 	else if (argc == 1)
 	{
 		stack_a = splitter(argc, argv);
@@ -109,7 +109,7 @@ int	main(int argc, char **argv)
 	}
 	if (check_repeated(stack_a) == REPEATED)
 		return (write (2, "Error\n", 6));
-	sort (argc, &stack_a, &stack_b);
+	sort (ft_lstsize(stack_a), &stack_a, &stack_b);
 	freestack(stack_a);
 	return (0);
 }
